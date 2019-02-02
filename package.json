@@ -5,15 +5,19 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "start": "node server.js",
+    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "bootstrap": "^4.2.1",
     "bootstrap-vue": "^2.0.0-rc.11",
+    "express": "^4.16.4",
     "material-design-icons-iconfont": "^4.0.3",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.21",
+    "vue-router": "^3.0.2",
     "vuetify": "^1.4.0"
   },
   "devDependencies": {

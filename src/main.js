@@ -9,6 +9,9 @@ import colors from 'vuetify/es5/util/colors'
 Vue.config.productionTip = false
 
 import Vuetify, {
+    VDivider,
+    VCheckbox,
+    VSubheader,
     VApp,
     VNavigationDrawer,
     VFooter,
@@ -29,9 +32,14 @@ import Vuetify, {
     VBtn,
     VListTileTitle,
     VSlider,
+    VTextField,
+    VCardText,
+    VImg,
+    VListTileAvatar,
     transitions
 } from 'vuetify/lib'
 import { Ripple } from 'vuetify/lib/directives'
+import router from './router'
 
 Vue.use(Vuetify, {
     iconfont: 'mdi',
@@ -41,7 +49,12 @@ Vue.use(Vuetify, {
         accent: colors.indigo.base
     },
     components: {
+        VDivider,
+        VListTileAvatar,
+        VCheckbox,
+        VSubheader,
         VApp,
+        VImg,
         VNavigationDrawer,
         VFooter,
         VToolbar,
@@ -61,6 +74,8 @@ Vue.use(Vuetify, {
         VBtn,
         VListTileTitle,
         VSlider,
+        VTextField,
+        VCardText,
         transitions
     },
     directives: {
@@ -69,6 +84,8 @@ Vue.use(Vuetify, {
 })
 
 new Vue({
-    render: h => h(App),
+    router,
+
     // router,
+    render: h => h(App)
 }).$mount('#app')

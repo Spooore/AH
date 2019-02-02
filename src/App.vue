@@ -1,22 +1,13 @@
 <template>
   <div id="app">
-    <StartScreen/>
+    <router-view/>
   </div>
 </template>
 
-<script>
-    import StartScreen from './components/StartScreen'
-
-
-    export default {
-        name: 'app',
-        components: {
-            StartScreen,
-        }
-    }
-</script>
-
 <style>
+
+  html { height: 100%; }
+  body {height: 100%; }
 
   @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
