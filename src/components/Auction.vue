@@ -19,7 +19,8 @@
                             class="font-weight-black red--text display-1 d-block text-xs-right">
                         {{item.rrso}}
                         <v-btn v-if="auction_stopped"
-                               fab dark color="red" small>
+                               @click="HopToBankSite(item.site)"
+                        fab dark color="red" small>
                             <v-icon dark>done_outline</v-icon>
                         </v-btn>
 
@@ -41,6 +42,7 @@
 
 <script>
     import Vue from 'vue'
+    import router from '../router'
 
     export default {
 
@@ -58,15 +60,21 @@
                 ],
                 bank_items: [
 
-                    {title: 'Alior   ', avatar: require('@/assets/LOGA-01.png'), rrso: "1.8%", rrso_int: 1.8},
-                    {title: 'PKO BP  ', avatar: require('@/assets/LOGA-02.png'), rrso: '1,7%', rrso_int: 1.7},
-                    {title: 'PKO SA  ', avatar: require('@/assets/LOGA-03.png'), rrso: '2,1%', rrso_int: 2.1},
-                    {title: 'Milenium', avatar: require('@/assets/LOGA-04.png'), rrso: '2,2%', rrso_int: 2.2},
-                    {title: 'MBank   ', avatar: require('@/assets/LOGA-05.png'), rrso: '2,6%', rrso_int: 2.6}
+                    {title: 'Alior   ', avatar: require('@/assets/LOGA-01.png'), rrso: "1.8%", rrso_int: 1.8, site: 'https://www.aliorbank.pl/'},
+                    {title: 'PKO BP  ', avatar: require('@/assets/LOGA-02.png'), rrso: '1,7%', rrso_int: 1.7, site: 'https://www.pkobp.pl/'},
+                    {title: 'PKO SA  ', avatar: require('@/assets/LOGA-03.png'), rrso: '2,1%', rrso_int: 2.1, site: 'https://www.pekao.com.pl/'},
+                    {title: 'Milenium', avatar: require('@/assets/LOGA-04.png'), rrso: '2,2%', rrso_int: 2.2, site: 'https://www.bankmillennium.pl/'},
+                    {title: 'MBank   ', avatar: require('@/assets/LOGA-05.png'), rrso: '2,6%', rrso_int: 2.6, site: 'https://www.mbank.pl/indywidualny/'}
                 ]
             }
         },
         methods: {
+
+            HopToBankSite(url)
+            {
+                window.location = url
+            },
+
             StopAuction() {
                 this.auction_stopped = true;
             },
@@ -90,9 +98,9 @@
 
                     this.bank_items.forEach(bank => {
 
-                        let chance = Math.floor(Math.random() * 10);
-                        if (chance < 0.5) {
-                            bank.rrso_int = Math.random() * bank.rrso_int + 0.1;
+                        let chance = Math.floor(Math.random() * 100);
+                        if (chance < 5) {
+                            bank.rrso_int = Math.max((bank.rrso_int - (Math.random() * 0.5)),0) + 0.1;
                             bank.rrso_int = bank.rrso_int.toFixed(2);
                             bank.rrso = bank.rrso_int + "%";
                         }

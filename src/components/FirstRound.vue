@@ -1,13 +1,16 @@
 <template>
     <div>
-        <div id="Greeting_Text">
-            <h1>1</h1>
-            <span>Runda </span>
-        </div>
 
-        <div id="Boxer">
+        <v-flex>
+            <div id="Greeting_Text">
+                <h1>1</h1>
+                <span>Runda </span>
+            </div>
 
-        </div>
+            <div id="Boxer">
+
+            </div>
+        </v-flex>
         <div class="text-xs-center">
             <v-btn
                     id="Rozpocznij"
@@ -25,7 +28,7 @@
 
     export default {
         name: "FirstRound",
-        comments:{
+        comments: {
             Auction
         },
     }
@@ -46,7 +49,7 @@
         position: absolute;
     }
 
-    #Rozpocznij{
+    #Rozpocznij {
         position: absolute;
         bottom: 2%;
         left: 50%;
