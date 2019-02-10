@@ -8,7 +8,8 @@
             <template v-for="(item, index) in items.slice(0, 10)">
                 <v-subheader v-if="item.header" :key="item.header">{{ item.header }}</v-subheader>
                 <v-divider v-else-if="item.divider" :inset="item.inset" :key="index"></v-divider>
-                <v-list-tile v-else :key="item.title" avatar @click="">
+                <v-list-tile v-else :key="item.title" avatar
+                             v-bind:style="{ background: item.activeColor }">
                     <v-list-tile-avatar>
                         <img :src="item.avatar">
                     </v-list-tile-avatar>
@@ -60,11 +61,11 @@
                 ],
                 bank_items: [
 
-                    {title: 'Alior   ', avatar: require('@/assets/LOGA-01.png'), rrso: "1.8%", rrso_int: 1.8, site: 'https://www.aliorbank.pl/'},
-                    {title: 'PKO BP  ', avatar: require('@/assets/LOGA-02.png'), rrso: '1,7%', rrso_int: 1.7, site: 'https://www.pkobp.pl/'},
-                    {title: 'PKO SA  ', avatar: require('@/assets/LOGA-03.png'), rrso: '2,1%', rrso_int: 2.1, site: 'https://www.pekao.com.pl/'},
-                    {title: 'Milenium', avatar: require('@/assets/LOGA-04.png'), rrso: '2,2%', rrso_int: 2.2, site: 'https://www.bankmillennium.pl/'},
-                    {title: 'MBank   ', avatar: require('@/assets/LOGA-05.png'), rrso: '2,6%', rrso_int: 2.6, site: 'https://www.mbank.pl/indywidualny/'}
+                    {title: 'Alior   ', avatar: require('@/assets/LOGA-01.png'), rrso: "1.8%", rrso_int: 1.8, site: 'https://www.aliorbank.pl/', activeColor: 'white'},
+                    {title: 'PKO BP  ', avatar: require('@/assets/LOGA-02.png'), rrso: '1,7%', rrso_int: 1.7, site: 'https://www.pkobp.pl/', activeColor: 'white'},
+                    {title: 'PKO SA  ', avatar: require('@/assets/LOGA-03.png'), rrso: '2,1%', rrso_int: 2.1, site: 'https://www.pekao.com.pl/', activeColor: 'white'},
+                    {title: 'Milenium', avatar: require('@/assets/LOGA-04.png'), rrso: '2,2%', rrso_int: 2.2, site: 'https://www.bankmillennium.pl/', activeColor: 'white'},
+                    {title: 'MBank   ', avatar: require('@/assets/LOGA-05.png'), rrso: '2,6%', rrso_int: 2.6, site: 'https://www.mbank.pl/indywidualny/',activeColor: 'white'}
                 ]
             }
         },
@@ -103,6 +104,15 @@
                             bank.rrso_int = Math.max((bank.rrso_int - (Math.random() * 0.5)),0) + 0.1;
                             bank.rrso_int = bank.rrso_int.toFixed(2);
                             bank.rrso = bank.rrso_int + "%";
+                            bank.activeColor='yellow';
+                            const sleep = (milliseconds) => {
+                                return new Promise(resolve => setTimeout(resolve, milliseconds))
+                            }
+
+                            sleep(500).then(() => {
+                                bank.activeColor='white';
+                            })
+
                         }
 
                     });
