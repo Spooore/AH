@@ -1,6 +1,8 @@
 <template>
     <div>
 
+
+
         <v-flex>
 
             <div class="wrapper">
@@ -32,9 +34,15 @@
     import Auction from "./Auction";
 
     export default {
+
         name: "FirstRound",
         comments: {
             Auction
+        },
+        data() {
+            return {
+                    img: require('@/assets/logo-header.png'),
+            }
         },
     }
 </script>
@@ -52,7 +60,6 @@
     }
 
     #Boxer {
-        background-color: green;
         background-image: url("https://media1.giphy.com/media/5tslZSupN8TwotE04E/giphy.gif?cid=3640f6095c3a48f96e315734675c620f");
         background-position: center;
         background-size: cover;
