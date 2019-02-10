@@ -2,14 +2,19 @@
     <div>
 
         <v-flex>
-            <div id="Greeting_Text">
-                <h1>1</h1>
-                <span>Runda </span>
+
+            <div class="wrapper">
+                <div id="Greeting_Text">
+                    <h1>1</h1>
+                    <span>Runda </span>
+                </div>
+
+                <div id="Boxer">
+                </div>
             </div>
 
-            <div id="Boxer">
 
-            </div>
+
         </v-flex>
         <div class="text-xs-center">
             <v-btn
@@ -36,16 +41,26 @@
 
 <style scoped>
 
+    .wrapper{
+        z-index:2;
+        width:100%;
+        height:auto;
+        background-color:#FFF;
+        left:auto ;
+        right:auto ;
+        margin: auto;
+    }
 
     #Boxer {
+        background-color: green;
         background-image: url("https://media1.giphy.com/media/5tslZSupN8TwotE04E/giphy.gif?cid=3640f6095c3a48f96e315734675c620f");
         background-position: center;
         background-size: cover;
-        height: 90%;
+        height: 100%;
         width: 100%;
-        left: 50%;
-        top: 73%;
-        transform: translate(-50%, -50%);
+        /*left: 50%;*/
+        top: auto;
+        /*transform: translate(-50%, -50%);*/
         position: absolute;
     }
 
