@@ -31,6 +31,7 @@
             <v-btn
                     id="Wstrzymaj"
                     v-bind:v-text="GetButtonText"
+                    v-if="!auction_stopped"
                     round
                     @click="StopAuction"
                     color='#86af49'
@@ -62,10 +63,10 @@
                 bank_items: [
 
                     {title: 'Alior   ', avatar: require('@/assets/LOGA-01.png'), rrso: "1.8%", rrso_int: 1.8, site: 'https://www.aliorbank.pl/', activeColor: 'white'},
-                    {title: 'PKO BP  ', avatar: require('@/assets/LOGA-02.png'), rrso: '1,7%', rrso_int: 1.7, site: 'https://www.pkobp.pl/', activeColor: 'white'},
-                    {title: 'PKO SA  ', avatar: require('@/assets/LOGA-03.png'), rrso: '2,1%', rrso_int: 2.1, site: 'https://www.pekao.com.pl/', activeColor: 'white'},
-                    {title: 'Milenium', avatar: require('@/assets/LOGA-04.png'), rrso: '2,2%', rrso_int: 2.2, site: 'https://www.bankmillennium.pl/', activeColor: 'white'},
-                    {title: 'MBank   ', avatar: require('@/assets/LOGA-05.png'), rrso: '2,6%', rrso_int: 2.6, site: 'https://www.mbank.pl/indywidualny/',activeColor: 'white'}
+                    {title: 'PKO BP  ', avatar: require('@/assets/LOGA-02.png'), rrso: '1.7%', rrso_int: 1.7, site: 'https://www.pkobp.pl/', activeColor: 'white'},
+                    {title: 'PKO SA  ', avatar: require('@/assets/LOGA-03.png'), rrso: '2.1%', rrso_int: 2.1, site: 'https://www.pekao.com.pl/', activeColor: 'white'},
+                    {title: 'Milenium', avatar: require('@/assets/LOGA-04.png'), rrso: '2.2%', rrso_int: 2.2, site: 'https://www.bankmillennium.pl/', activeColor: 'white'},
+                    {title: 'MBank   ', avatar: require('@/assets/LOGA-05.png'), rrso: '2.6%', rrso_int: 2.6, site: 'https://www.mbank.pl/indywidualny/',activeColor: 'white'}
                 ]
             }
         },
