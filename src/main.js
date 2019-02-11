@@ -44,7 +44,7 @@ import router from './router'
 Vue.use(Vuetify, {
     iconfont: 'mdi',
     theme: {
-        primary: colors.red.darken1,
+        primary: '#86af49',
         secondary: colors.red.lighten4,
         accent: colors.indigo.base
     },

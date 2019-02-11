@@ -95,7 +95,7 @@
             <v-btn round
                    @click="changePage"
                    color="primary"
-                   dark>Rumble On</v-btn>
+                   dark>Rozpocznij licytację</v-btn>
         </div>
         <!--<v-navigation-drawer-->
                 <!--v-model="drawer"-->
@@ -143,8 +143,8 @@
 
         data: () => ({
             drawer: null,
-            ex1: { label: 'Pieniądze', val: val_cash, color: 'red'},
-            ex2: { label: 'Czas     ', val: val_time, color: 'red'}
+            ex1: { label: 'Pieniądze', val: val_cash, color: '#86af49'},
+            ex2: { label: 'Czas     ', val: val_time, color: '#86af49'}
         }),
         props: {
             source: String
@@ -168,7 +168,7 @@
 
     #Greeting_Text{
         font-family: 'Varela Round', sans-serif;
-        background-color: #ff3333;
+        background-color: #86af49;
         height:15%;
         /*margin-bottom:20px;*/
         padding: 15px;
@@ -191,11 +191,11 @@
     }
     .summary_value{
         font-size: 20px;
-        color:#ff3333;
+        color:#86af49;
     }
     .summary_time{
         font-size: 20px;
-        color:#ff3333;
+        color:#86af49;
     }
 
 </style>

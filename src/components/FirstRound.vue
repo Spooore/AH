@@ -23,7 +23,7 @@
                     id="Rozpocznij"
                     round
                     to="Auction"
-                    color="red"
+                    color="primary"
                     dark>Rozpocznij
             </v-btn>
         </div>
@@ -60,7 +60,7 @@
     }
 
     #Boxer {
-        background-image: url("https://media1.giphy.com/media/5tslZSupN8TwotE04E/giphy.gif?cid=3640f6095c3a48f96e315734675c620f");
+        background-image: url("https://media.giphy.com/media/RAUh1XkOJnF4c/giphy.gif");
         background-position: center;
         background-size: cover;
         height: 100%;

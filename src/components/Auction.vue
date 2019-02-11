@@ -17,11 +17,11 @@
                         {{item.title}}
                     </v-list-tile-content>
                     <v-list-tile-content
-                            class="font-weight-black red--text display-1 d-block text-xs-right">
+                            class="font-weight-black light-green--text display-1 d-block text-xs-right">
                         {{item.rrso}}
                         <v-btn v-if="auction_stopped"
                                @click="HopToBankSite(item.site)"
-                        fab dark color="red" small>
+                        fab dark color="primary" small>
                             <v-icon dark>done_outline</v-icon>
                         </v-btn>
 
@@ -33,7 +33,7 @@
                     v-bind:v-text="GetButtonText"
                     round
                     @click="StopAuction"
-                    color="red"
+                    color="#86af49"
                     dark>
                 {{GetButtonText()}}
             </v-btn>
@@ -104,7 +104,7 @@
                             bank.rrso_int = Math.max((bank.rrso_int - (Math.random() * 0.5)),0) + 0.1;
                             bank.rrso_int = bank.rrso_int.toFixed(2);
                             bank.rrso = bank.rrso_int + "%";
-                            bank.activeColor='yellow';
+                            bank.activeColor='#e3eaa7';
                             const sleep = (milliseconds) => {
                                 return new Promise(resolve => setTimeout(resolve, milliseconds))
                             }
@@ -121,7 +121,7 @@
                     document.getElementById("demo").innerHTML = minutes + ":" + seconds;
 
                     if (distance < 0 || this.auction_stopped === true) {
-                        this.button_text = "Rozpocznij Rundę 2"
+                        this.button_text = "Wybierz ofertę"
                         clearInterval(x);
                         document.getElementById("demo").innerHTML = "Koniec Czasu";
                     }

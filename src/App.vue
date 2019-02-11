@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-flex>
-      <img src="@/assets/logo-header.png" alt="logo" height="60">
+      <img src="@/assets/logo-header02.png" alt="logo" height="60">
     </v-flex >
     <router-view/>
   </div>
@@ -19,6 +19,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: #86af49;
   }
 </style>
