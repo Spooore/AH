@@ -137,7 +137,7 @@
     import router from '../router'
     import FirstRound from "./FirstRound"
 
-    let val_cash=100;
+    let val_cash=1000;
     let val_time=6;
     export default {
 

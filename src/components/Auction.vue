@@ -31,6 +31,7 @@
             <v-btn
                     id="Wstrzymaj"
                     v-bind:v-text="GetButtonText"
+                    v-if="this.round<=3"
                     round
                     @click="StopAuction"
                     color="red"
@@ -51,6 +52,7 @@
         data() {
             return {
                 auction_stopped: false,
+                round: 1,
                 button_text: "Wstrzymaj licytację",
                 helper_items: [
                     {header: 'Aktualny ranking'},
@@ -62,10 +64,10 @@
                 bank_items: [
 
                     {title: 'Alior   ', avatar: require('@/assets/LOGA-01.png'), rrso: "1.8%", rrso_int: 1.8, site: 'https://www.aliorbank.pl/', activeColor: 'white'},
-                    {title: 'PKO BP  ', avatar: require('@/assets/LOGA-02.png'), rrso: '1,7%', rrso_int: 1.7, site: 'https://www.pkobp.pl/', activeColor: 'white'},
-                    {title: 'PKO SA  ', avatar: require('@/assets/LOGA-03.png'), rrso: '2,1%', rrso_int: 2.1, site: 'https://www.pekao.com.pl/', activeColor: 'white'},
-                    {title: 'Milenium', avatar: require('@/assets/LOGA-04.png'), rrso: '2,2%', rrso_int: 2.2, site: 'https://www.bankmillennium.pl/', activeColor: 'white'},
-                    {title: 'MBank   ', avatar: require('@/assets/LOGA-05.png'), rrso: '2,6%', rrso_int: 2.6, site: 'https://www.mbank.pl/indywidualny/',activeColor: 'white'}
+                    {title: 'PKO BP  ', avatar: require('@/assets/LOGA-02.png'), rrso: '1.7%', rrso_int: 1.7, site: 'https://www.pkobp.pl/', activeColor: 'white'},
+                    {title: 'PKO SA  ', avatar: require('@/assets/LOGA-03.png'), rrso: '2.1%', rrso_int: 2.1, site: 'https://www.pekao.com.pl/', activeColor: 'white'},
+                    {title: 'Milenium', avatar: require('@/assets/LOGA-04.png'), rrso: '2.2%', rrso_int: 2.2, site: 'https://www.bankmillennium.pl/', activeColor: 'white'},
+                    {title: 'MBank   ', avatar: require('@/assets/LOGA-05.png'), rrso: '2.6%', rrso_int: 2.6, site: 'https://www.mbank.pl/indywidualny/',activeColor: 'white'}
                 ]
             }
         },
@@ -77,12 +79,19 @@
             },
 
             StopAuction() {
-                this.auction_stopped = true;
+                 if (this.auction_stopped == false)
+                     this.auction_stopped = true;
+                 else
+                 {
+                     this.auction_stopped = false;
+                     this.Time();
+                 }
             },
             GetButtonText() {
                 return this.button_text;
             },
             Time() {
+                this.button_text="Wstrzymaj licytację";
                 var now = new Date();
                 var diff = 3;
                 var countDownDate = new Date(now.getTime() + diff * 60000);
@@ -100,8 +109,8 @@
                     this.bank_items.forEach(bank => {
 
                         let chance = Math.floor(Math.random() * 100);
-                        if (chance < 5) {
-                            bank.rrso_int = Math.max((bank.rrso_int - (Math.random() * 0.5)),0) + 0.1;
+                        if (chance < 3) {
+                            bank.rrso_int = Math.max((bank.rrso_int - (Math.random() * 0.2)),0) + 0.1;
                             bank.rrso_int = bank.rrso_int.toFixed(2);
                             bank.rrso = bank.rrso_int + "%";
                             bank.activeColor='yellow';
@@ -121,7 +130,13 @@
                     document.getElementById("demo").innerHTML = minutes + ":" + seconds;
 
                     if (distance < 0 || this.auction_stopped === true) {
-                        this.button_text = "Rozpocznij Rundę 2"
+                        this.round=this.round+1;
+                        if (this.round==2)
+                            this.button_text = "Rozpocznij Rundę 2"
+                        if (this.round==3)
+                            this.button_text = "Rozpocznij Rundę 3"
+                        if(this.round>3)
+                            this.button_text = "Wybierz ofertę"
                         clearInterval(x);
                         document.getElementById("demo").innerHTML = "Koniec Czasu";
                     }
