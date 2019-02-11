@@ -33,7 +33,7 @@
                     v-bind:v-text="GetButtonText"
                     round
                     @click="StopAuction"
-                    color="#86af49"
+                    color='#86af49'
                     dark>
                 {{GetButtonText()}}
             </v-btn>
@@ -84,7 +84,7 @@
             },
             Time() {
                 var now = new Date();
-                var diff = 3;
+                var diff = 10;
                 var countDownDate = new Date(now.getTime() + diff * 60000);
 
                 var x = setInterval(() => {
@@ -100,8 +100,8 @@
                     this.bank_items.forEach(bank => {
 
                         let chance = Math.floor(Math.random() * 100);
-                        if (chance < 5) {
-                            bank.rrso_int = Math.max((bank.rrso_int - (Math.random() * 0.5)),0) + 0.1;
+                        if (chance < 3) {
+                            bank.rrso_int = Math.max((bank.rrso_int - (Math.random() * 0.2)),0.1);
                             bank.rrso_int = bank.rrso_int.toFixed(2);
                             bank.rrso = bank.rrso_int + "%";
                             bank.activeColor='#e3eaa7';
@@ -124,6 +124,7 @@
                         this.button_text = "Wybierz ofertę"
                         clearInterval(x);
                         document.getElementById("demo").innerHTML = "Koniec Czasu";
+                        this.StopAuction();
                     }
                 }, 1000);
 
